@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>회원 가입 페이지</title>
+        <link rel="stylesheet" type="text/css" href="mission_1.css" />
+    </head>
+    <body>
+        <h2>회원 가입</h2>
+
+        <form id="signupForm" method="post">
+            <label for="name">이름</label><br />
+            <input type="text" id="name" name="name" /><br />
+            <label id="nameError" style="display: none"></label><br />
+
+            <label for="email">이메일</label><br />
+            <input type="text" id="email" name="email" /><br />
+            <label id="emailError" style="display: none"></label><br />
+
+            <label for="age">나이</label><br />
+            <input type="text" id="age" name="age" /><br />
+            <label id="ageError" style="display: none"></label><br />
+
+            <label for="password">비밀번호</label><br />
+            <input type="password" id="password" name="password" /><br />
+            <label id="passwordError" style="display: none"></label><br />
+
+            <label for="confirm_password">비밀번호 확인</label><br />
+            <input
+                type="password"
+                id="confirm_password"
+                name="confirm_password"
+            /><br />
+            <label id="confirm_passwordError" style="display: none"></label
+            ><br />
+
+            <input type="submit" value="가입하기" />
+        </form>
+        <script src="check.js"></script>
+    </body>
+</html>
