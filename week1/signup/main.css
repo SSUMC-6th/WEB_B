@@ -1,0 +1,96 @@
+body {
+  background-color: rgb(71, 207, 234);
+  position: relative;
+  margin: 0;
+}
+content.dark {
+  background-color: rgba(0, 0, 0, 0.232);
+}
+#signupForm {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0.498);
+  margin: 0 auto;
+  gap: 50px;
+  padding: 5% 20%;
+  font-weight: 700;
+}
+#title {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+#hr {
+  width: 100%;
+  height: 2px;
+  border: none;
+  background-color: white;
+}
+.inputDiv {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  font-weight: 500;
+  gap: 5px;
+}
+input {
+  height: 30px;
+  border: 1px white solid;
+  background-color: transparent;
+}
+
+#signupButton {
+  width: 80%;
+  height: 5%;
+  margin: 0 auto;
+  background-color: blue;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  color: white;
+  padding: 10px;
+}
+
+/* 유효성 관련 메세지 */
+.successMessage {
+  color: green;
+}
+.failMessage {
+  color: red;
+}
+#signupButton:disabled {
+  background-color: gray;
+}
+
+/* 모달 */
+#modalContainer {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.364);
+}
+#modalContainer.show {
+  display: block;
+}
+#modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: white;
+  padding: 20px;
+}
+#modal.show {
+  display: flex;
+}
