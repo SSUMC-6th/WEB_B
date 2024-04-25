@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  background-color: rgb(227, 229, 230);
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 100px;
+}
+#pageTitle {
+  width: 90%;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+}
+hr {
+  width: 80%;
+  height: 2px;
+  border: none;
+  background-color: rgb(171, 196, 222);
+  margin-bottom: 30px;
+}
+input {
+  width: 60%;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding-left: 10px;
+}
+input::placeholder {
+  font-style: italic;
+}
+#todoDiv {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+.section {
+  width: 40%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.todoTitle {
+  text-decoration: underline rgb(171, 196, 222);
+  text-underline-position: under;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.lists {
+  width: 100%;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.todo {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
+  background-color: transparent;
+  padding: 10px 0;
+  border-bottom: 2px solid rgb(171, 196, 222);
+}
+button {
+  height: 25px;
+  background-color: rgb(171, 196, 222);
+  border: none;
+  border-radius: 3px;
+}
