@@ -1,0 +1,64 @@
+.title {
+    text-align: center;
+    border-bottom: 1px solid gray;
+    padding-bottom: 80px;
+    margin-bottom: 50px;
+}
+
+.input-container {
+    text-align: center; /* 입력 요소를 가운데 정렬합니다. */
+}
+
+#taskInput {
+    width: 70%; /* 입력 필드의 너비를 설정합니다. */
+    padding: 10px; /* 입력 필드의 내부 여백을 추가합니다. */
+    font-size: 16px; /* 입력 필드의 글꼴 크기를 설정합니다. */
+    margin-bottom: 10px; /* 입력 필드 아래 여백을 설정합니다. */
+}
+
+
+.lists-container {
+    display: grid;
+      grid-template-columns: repeat(2, 50%);
+}
+
+#todoList, #completedList {
+    width: 100%;
+    padding: 10px;
+
+}
+
+.todoText, .completeText {
+    text-align: center;
+    border-bottom: 1px solid gray; 
+    width: 20%;
+    margin: 20px auto; 
+}
+
+.wrapper{
+    background-color: rgb(220, 222, 255);
+    width: 100%;
+    height:100%;
+
+}
+
+.task-message{
+    text-align: left;
+    margin-bottom: 10px;
+    border-bottom: 2px solid gray;
+    width: 40%;
+    margin: 20px auto;
+    word-wrap: break-word;
+}
+
+.completeButton{
+    background-color: skyblue;
+    border: none;
+    float: right;
+}
+
+.task{
+    display: inline-block; /* 인라인 블록 요소로 설정하여 수평으로 쌓이게 합니다. */
+    vertical-align: top; /* 요소의 상단을 기준으로 정렬합니다. */
+    margin-right: 10px; /* 텍스트와 버튼 사이의 간격을 조절합니다. */
+}
