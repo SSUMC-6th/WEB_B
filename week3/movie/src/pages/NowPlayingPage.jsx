@@ -45,8 +45,9 @@ flex-direction : column;
 
 function NowPlayingPage() {
   const [movies, setMovies] = useState([]);
+  const [loading,setLoading] = useState(true);
 
-  useEffect(() => {
+  
   const options = {
     method: 'GET',
     headers: {
@@ -54,16 +55,26 @@ function NowPlayingPage() {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZjE2ZDFjMTU5MTRlMzJkMDM2MmE4ZmU3Y2NkMTI0YyIsInN1YiI6IjY2MzNkZTI5ZTkyZDgzMDEyYWQyMmI3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p8-rV08-b4ctQHDXtx3qfOYJriDVYunUA6iZkeFme-k'
     }
   };
-  
+
+  useEffect(() => {
+  setLoading(true);
   fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
-    .then(response => response.json())
-    .then(data => setMovies(data.results))
-    .catch(err => console.error(err));
+  .then(response => response.json())
+  .then(data => {
+    setMovies(data.results);
+    setLoading(false); // 데이터 로딩이 완료되면 loading 상태를 false로 변경
+  })
+  .catch(err => {
+    console.error(err);
+    setLoading(false);
+  });
   }, []);
 
   return (
     <PageContainer>
     <NavBar />
+    {loading ? ( <p>Loading...</p>
+    ):(
     <MovieContainer>
       {movies.map(movie => (
         <MovieCard key={movie.id}>
@@ -74,6 +85,7 @@ function NowPlayingPage() {
         </MovieCard>
       ))}
     </MovieContainer>
+    )}
   </PageContainer>
 )
 }

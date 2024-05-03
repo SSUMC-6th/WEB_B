@@ -42,9 +42,13 @@ flex-direction : column;
   
  
 `;
+const Loading = styled.div`
+color : white; 
+font-size : 20px;`
 
 function PopularPage() {
   const [movies, setMovies] = useState([]);
+  const [loading,setLoading] = useState(true);
 
   useEffect(() => {
     const options = {
@@ -54,28 +58,33 @@ function PopularPage() {
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZjE2ZDFjMTU5MTRlMzJkMDM2MmE4ZmU3Y2NkMTI0YyIsInN1YiI6IjY2MzNkZTI5ZTkyZDgzMDEyYWQyMmI3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p8-rV08-b4ctQHDXtx3qfOYJriDVYunUA6iZkeFme-k'
       }
     };
-
+    setLoading(true);
     fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
       .then(response => response.json())
       .then(data => setMovies(data.results))
       .catch(error => console.error('Error fetching data:', error));
+      setLoading(false);
   }, []);
 
 
   return (
     <PageContainer>
-      <NavBar />
-      <MovieContainer>
-        {movies.map(movie => (
-          <MovieCard key={movie.id}>
-            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-            <h3>{movie.title}</h3>
-            <h3>{movie.vote_average}</h3>
-          
-          </MovieCard>
-        ))}
-      </MovieContainer>
-    </PageContainer>
+    <NavBar />
+    {loading ? ( 
+        <Loading>Loading...</Loading>
+    ):null}
+    <MovieContainer>
+      {movies.map(movie => (
+        <MovieCard key={movie.id}>
+          <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+          <h3>{movie.title}</h3>
+          <h3>{movie.vote_average}</h3>
+        
+        </MovieCard>
+      ))}
+    </MovieContainer>
+    
+  </PageContainer>
   )
 }
 

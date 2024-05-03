@@ -45,7 +45,8 @@ flex-direction : column;
 
 function UpcomingPage() {
   const [movies, setMovies] = useState([]);
-
+  const [loading,setLoading] = useState(true);
+  
   useEffect(() => {const options = {
     method: 'GET',
     headers: {
@@ -53,17 +54,21 @@ function UpcomingPage() {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZjE2ZDFjMTU5MTRlMzJkMDM2MmE4ZmU3Y2NkMTI0YyIsInN1YiI6IjY2MzNkZTI5ZTkyZDgzMDEyYWQyMmI3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p8-rV08-b4ctQHDXtx3qfOYJriDVYunUA6iZkeFme-k'
     }
   };
-  
+  setLoading(true);
   fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', options)
     .then(response => response.json())
     .then(data => setMovies(data.results))
     .catch(err => console.error(err));
+    setLoading(false);
    
   }, []);
 
   return (
     <PageContainer>
     <NavBar />
+    {loading ? ( 
+        <p>Loading...</p>
+    ):null}
     <MovieContainer>
       {movies.map(movie => (
         <MovieCard key={movie.id}>
@@ -74,6 +79,7 @@ function UpcomingPage() {
         </MovieCard>
       ))}
     </MovieContainer>
+    
   </PageContainer>
 )
 }
