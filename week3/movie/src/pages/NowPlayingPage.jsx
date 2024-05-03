@@ -43,6 +43,10 @@ flex-direction : column;
  
 `;
 
+const Loading = styled.div`
+color : white; 
+font-size : 20px;`
+
 function NowPlayingPage() {
   const [movies, setMovies] = useState([]);
   const [loading,setLoading] = useState(true);
@@ -56,25 +60,25 @@ function NowPlayingPage() {
     }
   };
 
+  const apicall = () =>
+    {  fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
+    .then(response => response.json())
+    .then(data => setMovies(data.results))
+    .catch(error => console.error('Error fetching data:', error));
+    setLoading(false);}
+
+    
   useEffect(() => {
   setLoading(true);
-  fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
-  .then(response => response.json())
-  .then(data => {
-    setMovies(data.results);
-    setLoading(false); // 데이터 로딩이 완료되면 loading 상태를 false로 변경
-  })
-  .catch(err => {
-    console.error(err);
-    setLoading(false);
-  });
-  }, []);
+  apicall();
+}, []);
 
   return (
     <PageContainer>
     <NavBar />
-    {loading ? ( <p>Loading...</p>
-    ):(
+    {loading ? ( 
+        <Loading>Loading...</Loading>
+    ):null}
     <MovieContainer>
       {movies.map(movie => (
         <MovieCard key={movie.id}>
@@ -85,7 +89,7 @@ function NowPlayingPage() {
         </MovieCard>
       ))}
     </MovieContainer>
-    )}
+    
   </PageContainer>
 )
 }
