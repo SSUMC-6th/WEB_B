@@ -7,10 +7,11 @@ display : flex;
 flex-direction : row;
 
 `
-const Pagetitle = styled.div`
+const TitleLinked = styled(Link)`
 display : flex;
 color: white;
 align-items : center;
+text-decoration: none;
 `
 
 
@@ -56,7 +57,7 @@ function NavBar() {
   return (
 
     <NavBarContainer>
-      <Pagetitle>UMC Movie</Pagetitle>
+      <TitleLinked to ="/">UMC Movie</TitleLinked>
     <LinkContainer>
     {isLoggedIn ? (
           <StyledButton onClick={handleLogout}>로그아웃</StyledButton>
