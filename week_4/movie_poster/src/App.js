@@ -8,6 +8,7 @@ import PopularPage from "./Pages/PopularPage";
 import NowPlayingPage from "./Pages/NowPlayingPage";
 import TopRatedPage from "./Pages/TopRatedPage";
 import UpComingPage from "./Pages/UpComing";
+import MovieDetailPage from "./Pages/MovieDetailPage";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/nowplaying" element={<NowPlayingPage />} />
                 <Route path="/toprated" element={<TopRatedPage />} />
                 <Route path="/upcoming" element={<UpComingPage />} />
+                <Route path="/movie/:id" element={<MovieDetailPage />} />
             </Routes>
         </BrowserRouter>
     );
