@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { ClipLoader } from "react-spinners";
+import { Link, useLocation } from "react-router-dom";
 
 export default function PopularPage() {
     const API_KEY =
@@ -38,12 +39,28 @@ export default function PopularPage() {
             ) : null}
 
             <Container>
-                {movieList.map((movie) => (
+                {/* {movieList.map((movie) => (
                     <Movie>
                         <img
                             src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
                         />
                         <div key={movie.id}>{movie.title}</div>
+                    </Movie>
+                ))} */}
+                {movieList.map((movie) => (
+                    <Movie>
+                        <Link
+                            to={{
+                                pathname: `/movie/${movie.id}`,
+                                state: { movie },
+                            }}
+                        >
+                            <img
+                                src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+                                alt={movie.title}
+                            />
+                            <div>{movie.title}</div>
+                        </Link>
                     </Movie>
                 ))}
             </Container>
