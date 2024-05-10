@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import NavBar from '../Components/NavBar'
+import Movie from '../Components/Movie'
 
 
 const PageContainer=styled.div`
@@ -72,24 +73,27 @@ const options = {
   
 }, []);
 
-  return (
-    <PageContainer>
-    <NavBar />
-    {loading ? ( 
-        <Loading>Loading...</Loading>
-    ):null}
-    <MovieContainer>
-      {movies.map(movie => (
-        <MovieCard key={movie.id}>
-          <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-          <h3>{movie.title}</h3>
-          <h3>{movie.vote_average}</h3>
-        
-        </MovieCard>
-      ))}
-    </MovieContainer>
-    
-  </PageContainer>
+return (
+  <PageContainer>
+  <NavBar />
+  {loading ? ( 
+      <Loading>Loading...</Loading>
+  ):null}
+  <MovieContainer>
+    {movies.map(movie => (
+      <Movie 
+      key={movie.id}
+      title={movie.title}
+      poster_path={movie.poster_path}
+      vote_average={movie.vote_average}
+      release_date={movie.release_date}
+      overview={movie.overview}
+      id={movie.id}
+      />
+    ))}
+  </MovieContainer>
+  
+</PageContainer>
 )
 }
 export default UpcomingPage;

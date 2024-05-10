@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import NavBar from '../Components/NavBar'
+import Movie from '../Components/Movie'
 
 
 const PageContainer=styled.div`
@@ -42,24 +43,26 @@ flex-direction : column;
   
  
 `;
-const Loading = styled.div`
-color : white;
-font-size : 20px;
-`
 
-function UpcomingPage() {
+const Loading = styled.div`
+color : white; 
+font-size : 20px;`
+
+function NowPlayingPage() {
   const [movies, setMovies] = useState([]);
   const [loading,setLoading] = useState(true);
+
   
-const options = {
+  const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZjE2ZDFjMTU5MTRlMzJkMDM2MmE4ZmU3Y2NkMTI0YyIsInN1YiI6IjY2MzNkZTI5ZTkyZDgzMDEyYWQyMmI3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p8-rV08-b4ctQHDXtx3qfOYJriDVYunUA6iZkeFme-k'
     }
   };
+
   const apicall = () =>
-    {fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', options)
+    {  fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
     .then(response => response.json())
     .then(data => setMovies(data.results))
     .catch(error => console.error('Error fetching data:', error));
@@ -69,7 +72,6 @@ const options = {
   useEffect(() => {
   setLoading(true);
   apicall();
-  
 }, []);
 
   return (
@@ -80,16 +82,19 @@ const options = {
     ):null}
     <MovieContainer>
       {movies.map(movie => (
-        <MovieCard key={movie.id}>
-          <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-          <h3>{movie.title}</h3>
-          <h3>{movie.vote_average}</h3>
-        
-        </MovieCard>
+        <Movie 
+        key={movie.id}
+        title={movie.title}
+        poster_path={movie.poster_path}
+        vote_average={movie.vote_average}
+        release_date={movie.release_date}
+        overview={movie.overview}
+        id={movie.id}
+        />
       ))}
     </MovieContainer>
     
   </PageContainer>
 )
 }
-export default UpcomingPage;
+export default NowPlayingPage;
