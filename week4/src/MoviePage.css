@@ -1,0 +1,26 @@
+.movie-page {
+    position: relative;
+    width: 100%; /* 화면 전체 너비 */
+    height: 100%; /* 화면 전체 높이 */
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* 이미지를 컨테이너에 맞게 조절 */
+    background-position: center; /* 이미지를 가운데 정렬 */
+    opacity: 0.3; /* 배경 이미지 투명도 조절 */
+    position: absolute;
+  }
+  
+  .movie-details {
+    position: relative;
+    z-index: 1; /* 배경 이미지 위에 표시되도록 z-index 설정 */
+    padding: 20px;
+    color: #fff; /* 텍스트 색상 설정 */
+    display: flex;
+  }
+  
