@@ -75,6 +75,7 @@ const Page = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: black;
+  margin-top: 60px;
 `;
 const Container = styled.div`
   width: max-content;
@@ -86,6 +87,13 @@ const Container = styled.div`
   row-gap: 20px;
   padding: 10px 20px;
   color: white;
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 800px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 const Loading = styled.div`

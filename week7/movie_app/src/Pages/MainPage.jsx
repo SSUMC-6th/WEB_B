@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { FiSearch } from "react-icons/fi";
 
 import useSearchDebounce from "../hooks/useSearchDebounce";
 import Movie from "../Components/Movie";
@@ -47,18 +48,20 @@ export default function MainPage() {
   );
 
   return (
-    <MainContainer movieList={movieList}>
+    <Page movieList={movieList}>
       <Greetings>
         {isLogdedin ? `${ID}님 환영합니다!` : "환영합니다!"}
       </Greetings>
       <Search>
         <span>🎥 영화를 검색해보세요!</span>
         <InputDiv>
-          <input
+          <Input
             value={searchKeyword}
             onChange={(e) => setSearchKeysord(e.target.value)}
-          ></input>
-          <button>검색</button>
+          ></Input>
+          <SearchBtn>
+            <FiSearch size={20} />
+          </SearchBtn>
         </InputDiv>
       </Search>
       {loading ? (
@@ -80,13 +83,15 @@ export default function MainPage() {
           ))}
         </Container>
       )}
-    </MainContainer>
+    </Page>
   );
 }
-const MainContainer = styled.div`
+const Page = styled.div`
   width: 100%;
   height: ${({ movieList }) => (movieList.length === 0 ? "100vh" : "100%")};
   background-color: black;
+  padding-bottom: 50px;
+  margin-top: 60px;
 `;
 const Greetings = styled.div`
   height: 200px;
@@ -99,8 +104,9 @@ const Greetings = styled.div`
 `;
 
 const Search = styled.div`
+  width: 70%;
+  margin: 0 auto;
   color: white;
-  background-color: black;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -110,8 +116,25 @@ const Search = styled.div`
   padding: 50px 0;
 `;
 const InputDiv = styled.div`
+  width: 100%;
   display: flex;
+  justify-content: center;
   gap: 10px;
+`;
+const Input = styled.input`
+  width: 70%;
+  border: none;
+  border-radius: 50px;
+  padding-left: 10px;
+`;
+const SearchBtn = styled.button`
+  width: 50px;
+  height: 30px;
+  border: none;
+  border-radius: 50px;
+  background-color: red;
+  font-size: 16px;
+  color: white;
 `;
 
 const Container = styled.div`
@@ -120,6 +143,7 @@ const Container = styled.div`
   overflow: scroll;
   box-sizing: border-box;
   margin: 0 auto;
+
   text-align: center;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -127,13 +151,21 @@ const Container = styled.div`
   row-gap: 20px;
   padding: 10px 20px;
   color: white;
-  background-color: white;
+  background-color: black;
+  overflow-x: hidden;
   &::-webkit-scrollbar {
     width: 8px;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #ff0000;
     border-radius: 5px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 800px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 

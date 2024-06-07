@@ -123,6 +123,7 @@ export default function MovieDetailPage() {
 const Page = styled.div`
   width: 100%;
   background-color: black;
+  margin-top: 60px;
 `;
 const Container = styled.div`
   width: 50%;
@@ -132,12 +133,18 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
+  @media screen and (max-width: 1024px) {
+    align-items: center;
+  }
 `;
 const Movie = styled.div`
   display: flex;
   flex-direction: row;
   gap: 30px;
   color: white;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 const Info = styled.div`
   display: flex;

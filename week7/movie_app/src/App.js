@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./Pages/MainPage";
 import NowPlaying from "./Pages/NowPlayingPage";
@@ -9,11 +10,16 @@ import SignupPage from "./Pages/SignupPage";
 import LoginPage from "./Pages/LoginPage";
 
 import Header from "./Components/Header";
+import Sidebar from "./Components/Sidebar";
 import MovieDetailPage from "./Pages/MovieDetailPage";
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <BrowserRouter>
-      <Header />
+      <Header handleSidebar={setMenuOpen} />
+      {/* {menuOpen ? (
+        <Sidebar handleSidebar={setMenuOpen} />
+      ) : ( */}
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/signup" element={<SignupPage />} />
@@ -25,6 +31,7 @@ function App() {
         <Route path="/movie/:id" element={<MovieDetailPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      {/* )} */}
     </BrowserRouter>
   );
 }

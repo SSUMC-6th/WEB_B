@@ -82,22 +82,20 @@ const MainContainer = styled.div`
   width: 100%;
   height: 100vh;
   background-color: black;
+  margin-top: 60px;
 `;
 const Container = styled.div`
-  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  padding: 30px 0;
+  margin: 0 auto;
   color: white;
   font-size: 2rem;
 `;
 const Form = styled.form`
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   gap: 10px;

@@ -201,6 +201,7 @@ const MainContainer = styled.div`
   width: 100%;
   height: 100vh;
   background-color: black;
+  margin-top: 60px;
 `;
 const Container = styled.div`
   width: 60%;
@@ -208,10 +209,8 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  padding: 30px 0;
+  margin: 0 auto;
   color: white;
   font-size: 2rem;
 `;
@@ -249,4 +248,7 @@ const AskMember = styled.div`
   display: flex;
   gap: 20px;
   font-size: 1.2rem;
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
