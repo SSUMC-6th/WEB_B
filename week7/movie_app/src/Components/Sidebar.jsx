@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
-export default function Sidebar({ handleSidebar }) {
+export default function Sidebar({ handlesidebar }) {
   const [isLogdedin, setIsLoggedin] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Sidebar({ handleSidebar }) {
     localStorage.removeItem("ID");
   };
   const handleNavigate = () => {
-    handleSidebar(false);
+    handlesidebar(false);
   };
   useEffect(() => {
     setCurrentPage(location.pathname);
@@ -36,7 +36,7 @@ export default function Sidebar({ handleSidebar }) {
           <StyledLink
             to="login"
             onClick={handleNavigate}
-            currentPage={currentPage}
+            currentpage={currentPage}
             self="/login"
           >
             로그인
@@ -44,7 +44,7 @@ export default function Sidebar({ handleSidebar }) {
           <StyledLink
             to="signup"
             onClick={handleNavigate}
-            currentPage={currentPage}
+            currentpage={currentPage}
             self="/signup"
           >
             회원가입
@@ -54,7 +54,7 @@ export default function Sidebar({ handleSidebar }) {
       <StyledLink
         to="popular"
         onClick={handleNavigate}
-        currentPage={currentPage}
+        currentpage={currentPage}
         self="/popular"
       >
         Popular
@@ -62,7 +62,7 @@ export default function Sidebar({ handleSidebar }) {
       <StyledLink
         to="nowplaying"
         onClick={handleNavigate}
-        currentPage={currentPage}
+        currentpage={currentPage}
         self="/nowplaying"
       >
         Now Playing
@@ -70,7 +70,7 @@ export default function Sidebar({ handleSidebar }) {
       <StyledLink
         to="toprated"
         onClick={handleNavigate}
-        currentPage={currentPage}
+        currentpage={currentPage}
         self="/toprated"
       >
         Top Rated
@@ -78,7 +78,7 @@ export default function Sidebar({ handleSidebar }) {
       <StyledLink
         to="upcoming"
         onClick={handleNavigate}
-        currentPage={currentPage}
+        currentpage={currentPage}
         self="/upcoming"
       >
         Upcoming

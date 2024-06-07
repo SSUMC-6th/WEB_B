@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { FiMenu } from "react-icons/fi";
 import Sidebar from "./Sidebar";
 
-export default function Header({ handleSidebar }) {
+export default function Header() {
   const [isLogdedin, setIsLoggedin] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -20,10 +20,6 @@ export default function Header({ handleSidebar }) {
     setIsLoggedin(false);
     localStorage.removeItem("token");
     localStorage.removeItem("ID");
-  };
-
-  const handleMenu = () => {
-    setMenuOpen((current) => !current);
   };
 
   return (
@@ -44,17 +40,13 @@ export default function Header({ handleSidebar }) {
         <StyledLink to="upcoming">Upcoming</StyledLink>
       </Menu>
       <Hamburger
-        // onClick={() => {
-        //   handleSidebar((current) => !current);
-        // }}
         onClick={() => {
           setMenuOpen((current) => !current);
         }}
-        handleSidebar={setMenuOpen}
       >
         <FiMenu size={30} />
       </Hamburger>
-      {menuOpen ? <Sidebar /> : null}
+      {menuOpen && <Sidebar handlesidebar={setMenuOpen} />}
     </Container>
   );
 }

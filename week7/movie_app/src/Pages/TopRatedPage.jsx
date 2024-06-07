@@ -37,6 +37,7 @@ export default function TopRatedPage() {
       <Container>
         {movieList.map((movie) => (
           <Movie
+            key={movie.id}
             id={movie.id}
             poster_path={movie.poster_path}
             title={movie.title}
