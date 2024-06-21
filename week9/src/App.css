@@ -1,0 +1,124 @@
+/* 헤더 스타일 */
+.header {
+  display: flex;
+  justify-content: space-between; /* 중간 공간을 최대화하여 양쪽으로 밀어냄 */
+  align-items: center; /* 세로 중앙 정렬 */
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 24px; /* 타이틀 글자 크기 적절하게 조정 */
+  color: #333; /* 글자 색상 설정 */
+}
+
+.cart-icon-container {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.total-items {
+  margin-left: 10px;
+}
+
+/* 추가된 컨트롤과 요약 스타일 */
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.controls button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+/* 아이템 스타일링 */
+.item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item img {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+/* 아이템 정보 스타일링 */
+.info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* 나머지 공간을 모두 차지하도록 설정 */
+}
+
+.info h3 {
+  margin: 0;
+}
+
+.info p {
+  margin: 5px 0;
+}
+
+.quantity-controls {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.quantity-controls button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.quantity-controls span {
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+/* 아이콘 크기 조절 */
+svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* 기존 스타일 유지 */
+.playlist-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+}
