@@ -1,0 +1,86 @@
+/* Navbar.css */
+nav {
+  height: 50px; /* 높이 증가 */
+  display: flex;
+  justify-content: space-between; /* 항목들을 양쪽 끝으로 정렬합니다. */
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navbar-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.menu-icon {
+  display: none; /* 기본적으로는 메뉴 아이콘이 보이지 않습니다 */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.mainpage > a{
+  color: white;
+  text-decoration: none;
+}
+
+.right-align > a {
+  color: white; /* 텍스트의 색을 하얀색으로 지정합니다. */
+  margin: 0 10px; /* 각 링크 사이의 좌우 마진을 조절합니다. */
+  text-decoration: none; /* 링크 텍스트의 밑줄을 제거합니다. */
+  transition: color 0.3s; /* 색상 변경에 대한 부드러운 전환 효과 */
+}
+
+.right-align > a:hover {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 어두운 배경 */
+  z-index: 999; /* 사이드바보다 낮은 z-index */
+  display: none; /* 기본적으로는 표시하지 않음 */
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%; /* 전체 너비 */
+  height: 100%; /* 전체 높이 */
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* 오버레이보다 높은 z-index */
+}
+
+.sidebar.open {
+  transform: translateX(0); /* 활성화 시 화면에 표시 */
+}
+
+
+.close-sidebar {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .right-align {
+      display: none; /* 태블릿 및 모바일 환경에서는 원래의 링크들을 숨깁니다. */
+  }
+  .menu-icon {
+      display: block; /* 모바일 및 태블릿에서 메뉴 아이콘을 표시합니다. */
+  }
+}

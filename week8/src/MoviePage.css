@@ -1,0 +1,72 @@
+.movie-page {
+  position: relative;
+  width: 100%; /* 화면 전체 너비 */
+  min-height: 100vh; /* 최소 높이를 화면 높이에 맞춤 */
+  padding: 20px;
+  box-sizing: border-box; /* 패딩을 포함한 총 너비 계산 */
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* 이미지를 컨테이너에 맞게 조절 */
+  background-position: center; /* 이미지를 가운데 정렬 */
+  opacity: 0.3; /* 배경 이미지 투명도 조절 */
+  z-index: -1;
+}
+
+.movie-details {
+  position: relative;
+  z-index: 1; /* 배경 이미지 위에 표시되도록 z-index 설정 */
+  color: #fff; /* 텍스트 색상 설정 */
+  display: flex;
+  flex-direction: column; /* 모바일 뷰에서는 세로 정렬 */
+  align-items: center; /* 중앙 정렬 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.movie-poster {
+  width: 100%; /* 포스터 이미지 너비를 동적으로 조정 */
+  max-width: 200px; /* 최대 너비 제한 */
+  height: auto; /* 높이는 자동 조절 */
+  margin-bottom: 20px; /* 세부정보와의 간격 */
+}
+
+.cast-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 출연진 리스트 중앙 정렬 */
+  gap: 10px;
+}
+
+.cast-member {
+  width: 100px; /* 출연진 정보 너비 조정 */
+  text-align: center;
+}
+
+.cast-photo {
+  width: 100%; /* 사진 전체 너비 사용 */
+  height: auto; /* 높이 자동 조정 */
+  border-radius: 10px;
+}
+
+/* 반응형 미디어 쿼리 */
+@media (min-width: 768px) {
+  .movie-details {
+      flex-direction: row; /* 태블릿과 데스크탑에서는 가로 정렬 */
+      align-items: flex-start; /* 상단 정렬 */
+      text-align: left; /* 텍스트 좌측 정렬 */
+  }
+
+  .movie-poster {
+      width: auto; /* 이미지 원래 너비 사용 */
+      max-width: 200px; /* 최대 너비 제한 유지 */
+  }
+
+  .cast-member {
+      width: 120px; /* 출연진 정보 너비 확장 */
+  }
+}
